@@ -1,0 +1,335 @@
+# 基于微服务的 configserver 默认配置修改
+#服务名称：
+  #具体配置：
+    #...
+sim-basic:
+  feign:
+    httpclient:
+      enabled: true
+  mytransaction:
+    service:
+      name: sim-basic
+  spring:
+    cache:
+      type: redis
+      database: 1
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 36000
+      database: 0
+      password:
+    datasource:
+      url: jdbc:mysql://192.168.6.245:3306/sim-basic?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: flowable
+      password: flowable
+      driverClassName: com.mysql.jdbc.Driver
+      filters: stat,wall,log4j
+      connectionProperties: "druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"
+      useGlobalDataSourceStat: useGlobalDataSourceStat
+      initialSize: 20
+      minIdle: 20
+      maxActive: 2000
+      maxWait: 180000
+      removeAbandoned: true
+      removeAbandonedTimeout: 1800
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: true
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 50
+    kafka:
+      bootstrap-servers: 127.0.0.1:9092
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: com.ceying.eagleeye.common.serizable.kafka.HessianSerializer
+      consumer:
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: com.ceying.eagleeye.common.serizable.kafka.HessianDeserializer
+        group-id: ${spring.application.name}
+    cloud:
+      stream:
+        kafka:
+          binder:
+            brokers: 127.0.0.1:9092
+            zkNodes: 127.0.0.1:2183
+            defaultZkPort: 2183
+  mybatis:
+    mapperLocations: classpath:mapping/*.xml
+    type-aliases-package: com.ceying.system.vo,com.ceying.system.entity,com.ceying.system.query #批量增设别名
+    config-location: classpath:config/mybatis-config.xml
+  mapper:
+    mappers: com.ceying.common.util.mybatis.MyMapper
+    not-empty: false
+    identity: MYSQL
+  ribbon:
+    ConnectTimeout: 50000
+    ReadTimeout: 180000
+scyp-modeler:
+  feign:
+    httpclient:
+      enabled: true
+  mytransaction:
+    service:
+      name: scyp-system
+  spring:
+    cache:
+      type: redis
+      database: 1
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 36000
+      database: 0
+      password:
+    datasource:
+      url: jdbc:mysql://192.168.6.253:3306/scyp-workflow?useUnicode=true&characterEncoding=utf8&useSSL=false #jdbc:mysql://127.0.0.1:3307/boss?characterEncoding=utf8&useSSL=false #jdbc:mysql://192.168.6.253:3306/ncyp?characterEncoding=utf8&useSSL=false
+      username: scyp
+      password: Ceying2019 #1993212 #manage
+      driverClassName: com.mysql.jdbc.Driver
+      filters: stat,wall,log4j
+      connectionProperties: "druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"
+      useGlobalDataSourceStat: useGlobalDataSourceStat
+      initialSize: 20
+      minIdle: 20
+      maxActive: 2000
+      maxWait: 180000
+      removeAbandoned: true
+      removeAbandonedTimeout: 1800
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: true
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 50
+    kafka:
+      bootstrap-servers: 127.0.0.1:9092
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: com.ceying.eagleeye.common.serizable.kafka.HessianSerializer
+      consumer:
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: com.ceying.eagleeye.common.serizable.kafka.HessianDeserializer
+        group-id: ${spring.application.name}
+    cloud:
+      stream:
+        kafka:
+          binder:
+            brokers: 127.0.0.1:9092
+            zkNodes: 127.0.0.1:2183
+            defaultZkPort: 2183
+  ribbon:
+    ConnectTimeout: 50000
+    ReadTimeout: 180000
+scyp-eagleeye-consumer:
+  feign:
+    httpclient:
+      enabled: true
+  mytransaction:
+    service:
+      name: scyp-system
+  spring:
+    cache:
+      type: redis
+      database: 1
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 36000
+      database: 0
+      password:
+    datasource:
+      url: jdbc:mysql://192.168.6.253:3306/scyp-system?useUnicode=true&characterEncoding=utf8&useSSL=false #jdbc:mysql://127.0.0.1:3307/boss?characterEncoding=utf8&useSSL=false #jdbc:mysql://192.168.6.253:3306/ncyp?characterEncoding=utf8&useSSL=false
+      username: scyp
+      password: Ceying2019 #1993212 #manage
+      driverClassName: com.mysql.jdbc.Driver
+      filters: stat,wall,log4j
+      connectionProperties: "druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"
+      useGlobalDataSourceStat: useGlobalDataSourceStat
+      initialSize: 20
+      minIdle: 20
+      maxActive: 2000
+      maxWait: 180000
+      removeAbandoned: true
+      removeAbandonedTimeout: 1800
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: true
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 50
+    kafka:
+      bootstrap-servers: 127.0.0.1:9092
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: com.ceying.eagleeye.common.serizable.kafka.HessianSerializer
+      consumer:
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: com.ceying.eagleeye.common.serizable.kafka.HessianDeserializer
+        group-id: ${spring.application.name}
+    cloud:
+      stream:
+        kafka:
+          binder:
+            brokers: 127.0.0.1:9092
+            zkNodes: 127.0.0.1:2183
+            defaultZkPort: 2183
+  mybatis:
+    mapperLocations: classpath:mapping/*.xml
+    type-aliases-package: com.ceying.eagleeye.customer.vo,com.ceying.eagleeye.customer.entity,com.ceying.eagleeye.customer.query #批量增设别名
+    config-location: classpath:config/mybatis-config.xml
+  mapper:
+    mappers: com.ceying.common.util.mybatis.MyMapper
+    not-empty: false
+    identity: MYSQL
+  ribbon:
+    ConnectTimeout: 50000
+    ReadTimeout: 180000
+all:
+  eagleeye:
+    filePath: 'C:\\scyp\\logs\\projectlog\\{yyyy-MM-dd}\\'
+    fileName: '{user}.log'
+    fileSize: 20
+    isLogNulUser: false
+    sessionKye: LOGINSUSER
+    topic: MYLOGTOPIC
+    userKey: userId
+    loginParamClass: com.ceying.common.entity.UserEntity
+    loginParamkey: userName
+    startLogPackage: 'com.ceying.*.controller.*(..),com.ceying.flowable.modeler.extention.task.controller.*(..)'
+    endLogPackage: 'com.ceying.*.controller.*(..),com.ceying.flowable.modeler.extention.task.controller.*(..)'
+    nologName: scyp-eagleeye-consumer
+    startPackage: 'com.ceying.system.controller.CacheManagerController.*(..)'
+    endPackage: 'com.ceying.system.controller.CacheManagerController.*(..)'
+    accounPath: C:\\scyp\\logs\\projectlog\\loganalysis\\
+scyp-gateway:
+  zuul:
+    ribbon:
+      eager-load:
+        enabled: true
+    routes:
+      scyp-system:
+        path: /system/**
+        serviceId: scyp-system
+        sensitiveHeaders:
+      scyp-modeler:
+        path: /modeler/**
+        serviceId: scyp-modeler
+        sensitiveHeaders:
+      scyp-biz:
+        path: /biz/**
+        serviceId: scyp-biz
+        sensitiveHeaders:
+      scyp-key:
+        path: /key/**
+        serviceId: scyp-key
+        sensitiveHeaders:
+      scyp-eagleeye-consumer:
+        path: /eagle/**
+        serviceId: scyp-eagleeye-consumer
+        sensitiveHeaders:
+      scyp-addition:
+        path: /addition/**
+        serviceId: scyp-addition
+        sensitiveHeaders:
+      scyp-config:
+        path: /config/**
+        serviceId: scyp-config
+        sensitiveHeaders:
+      scyp-tools:
+        path: /tools/**
+        serviceId: scyp-tools
+        sensitiveHeaders:
+      boss-system:
+        path: /boss/**
+        serviceId: boss-system
+        sensitiveHeaders:
+      esp-sign:
+        path: /sign/**
+        serviceId: esp-sign
+        sensitiveHeaders:
+    add-host-header: true
+  hystrix:
+    command:
+      scyp-system:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 600000
+      scyp-biz:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 600000
+      scyp-key:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 600000
+      scyp-modeler:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 600000
+      scyp-addition:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 600000
+      scyp-tools:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 600000
+      scyp-config:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 600000
+      scyp-eagleeye-consumer:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 600000
+      boss-system:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 600000
+      esp-sign:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 600000
+  ribbon:
+    ConnectTimeout: 50000
+    ReadTimeout: 600000
+    eager-load:
+      enabled: true
+      clients: scyp-system,scyp-modeler,scyp-biz,scyp-key,scyp-eagleeye-consumer,scyp-addition
+  logging:
+    level:
+      ROOT: INFO
+      org.springframework.web: DEBUG
+  serviceFilter:
+    skipPattern: login|logout|list|query|get|select|page|app/rest|app-api/rest|add/description|having/success|error|filedownload| #不校验列表 只要路径中包含其中一个字段就不校验
+    enable: true  #是否开启权限校验 false 不校验
+  spring:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 36000
+      database: 0
+      password:
+    session:
+      store-type: redis
+    cache:
+      type: redis
+      database: 1

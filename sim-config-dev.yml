@@ -13,27 +13,26 @@ spring:
     database: 0
     password:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/sim-basic?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: flowable
     password: flowable
-    driverClassName: com.mysql.jdbc.Driver
-    filters: stat,wall,log4j
-    connectionProperties: "druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"
-    useGlobalDataSourceStat: useGlobalDataSourceStat
-    initialSize: 20
-    minIdle: 20
-    maxActive: 2000
-    maxWait: 180000
-    removeAbandoned: true
-    removeAbandonedTimeout: 1800
+    url: jdbc:mysql://127.0.0.1:3306/sim-basic?characterEncoding=utf-8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
     validationQuery: SELECT 1 FROM DUAL
     testWhileIdle: true
-    testOnBorrow: true
+    testOnBorrow: false
     testOnReturn: false
     poolPreparedStatements: true
-    maxPoolPreparedStatementPerConnectionSize: 50
+    filters: {stat,wall,log4j}
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 mybatis:
   mapperLocations: classpath:mapping/*.xml
   type-aliases-package: com.sim.common.entity #批量增设别名

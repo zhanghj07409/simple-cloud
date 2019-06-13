@@ -34,6 +34,14 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxPoolPreparedStatementPerConnectionSize: 50
+mybatis:
+  mapperLocations: classpath:mapping/*.xml
+  type-aliases-package: com.sim.common.entity #批量增设别名
+  config-location: classpath:config/mybatis-config.xml
+mapper:
+  mappers: com.sim.common.util.mybatis.MyMapper
+  not-empty: false
+  identity: MYSQL
 ribbon:
   ConnectTimeout: 50000
   ReadTimeout: 180000

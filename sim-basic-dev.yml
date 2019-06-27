@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/sim-basic?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://127.0.0.18:3306/sim-basic?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: flowable
     password: '{cipher}AQA3bH+Y12eJEhO9muVXAcMnGn3uJJ5DyMHHyub4RpIaJIoUyXNaFLkZoKu3iNblt06Gj3pMTjqlgKW2rzVca7e9kDnn3ZqrcfdELuRCFLXrvDKaXh2z5L3Z9u6DKkiJWRcI+XSaBz6lXjwR4rLBw3n6908+Ulm6sX2jCoUmz0siU/Im3etX5pISBJSTQMjRdgsKw6J4uThuYy37zgRJXsQrlCPRUNA5w5Hn/6AtNVzJHOx51cqGteP2wiaThCA9k7q1D7b3n9mCnZX52nN++vBsU3XDYvyHqtFR2U7jS2OqLpachW7ibo+M3n2xPmNigi9NG4jEjg48EVk1SiuKRNg8q2fMByuWKYnCVstehE5giP6feoltwq6NBzk7dPmcKmE='
     driverClassName: com.mysql.jdbc.Driver
@@ -30,6 +30,22 @@ spring:
     timeout: 36000
     database: 0
     password:    
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: com.ceying.eagleeye.common.serizable.kafka.HessianSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: com.ceying.eagleeye.common.serizable.kafka.HessianDeserializer
+      group-id: ${spring.application.name}
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 127.0.0.1:9092
+          zkNodes: 127.0.0.1:2183
+          defaultZkPort: 2183    
 mybatis:
   mapperLocations: classpath:mapping/*.xml
   type-aliases-package: com.sim.common.entity #批量增设别名

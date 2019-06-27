@@ -34,10 +34,10 @@ spring:
     bootstrap-servers: 127.0.0.1:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: com.ceying.eagleeye.common.serizable.kafka.HessianSerializer
+      value-serializer: com.sim.common.serizable.kafka.HessianSerializer
     consumer:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: com.ceying.eagleeye.common.serizable.kafka.HessianDeserializer
+      value-deserializer: com.sim.common.serizable.kafka.HessianDeserializer
       group-id: ${spring.application.name}
   cloud:
     stream:

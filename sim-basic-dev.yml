@@ -30,15 +30,6 @@ spring:
     timeout: 36000
     database: 0
     password:    
-  kafka:
-    bootstrap-servers: 127.0.0.1:9092
-    producer:
-      key-serializer: 'org.apache.kafka.common.serialization.StringSerializer'
-      value-serializer: 'com.sim.common.serizable.kafka.HessianSerializer'
-    consumer:
-      key-deserializer: 'org.apache.kafka.common.serialization.StringDeserializer'
-      value-deserializer: 'com.sim.common.serizable.kafka.HessianDeserializer'
-      group-id: 'sim-basic'
   cloud:
     stream:
       kafka:

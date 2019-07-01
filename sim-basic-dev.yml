@@ -48,4 +48,4 @@ mapper:
 ribbon:
   ConnectTimeout: 50000
   ReadTimeout: 180000
-myname: 'zhanghj07409'  
+myname: 'zhanghj'  

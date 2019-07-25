@@ -29,7 +29,7 @@ spring:
     port: 6379
     timeout: 36000
     database: 0
-    password:    
+    password: CypFintech2019@123   
   cloud:
     stream:
       kafka:
@@ -48,4 +48,4 @@ mapper:
 ribbon:
   ConnectTimeout: 50000
   ReadTimeout: 180000
-myname: 'zhanghj'  
+myname: 'zhanghj07'  

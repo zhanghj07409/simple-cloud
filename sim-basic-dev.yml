@@ -29,7 +29,7 @@ spring:
     port: 6379
     timeout: 36000
     database: 0
-    password:    
+    password: '{cipher}AQBOoAEywUw7oEmdy2w/9h3OQEo1OzcQ6jWkNuemUYopmyOoMwnhLIaTDuBTbA6nc1yVRQWV597JxtobZk+3B7hRBtpiUKJ/Fgx8QMz38iKIe/wJzhxEfDKwZQ2FQ/L2BJ31L1yp9UnYh2CupEVwhuT+HgDzwZ1CzYrp4G1a3q8WCvkjt18MDJtiYkP1ZagxcD6muTauPVWp9UiaRHAQGKlsuugRpI0WLrLFbV1nym2dmdfQwkfy2+L/hqCBnf8aSiqJNE0EAYAT4LsQOqk8GzmskDJPgBvul4WHIOFRf4wUBj0HEWyXLNby4KzcmNMWUy/CSlDRXejNZpJ9BTIEPnIxYnpmHiBwiXJMHioLFcms40cyJyBg0+A2jSGRXWRUAET+/gR2CJ/n9DGVpoQulWVl'   
   cloud:
     stream:
       kafka:

@@ -1,4 +1,7 @@
 spring:
+  mytransaction:
+    service:
+      name: sim-basic
   datasource:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource

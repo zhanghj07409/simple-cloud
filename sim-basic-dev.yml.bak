@@ -1,7 +1,7 @@
 spring:
   mytransaction:
     service:
-      name: scyp-system
+      name: sim-basic
   datasource:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource

@@ -1,7 +1,4 @@
 spring:
-  mytransaction:
-    service:
-      name: sim-basic
   datasource:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource
@@ -51,4 +48,7 @@ mapper:
 ribbon:
   ConnectTimeout: 50000
   ReadTimeout: 180000
-myname: 'zhanghj07'  
+myname: 'zhanghj07' 
+mytransaction:
+  service:
+    name: sim-basic 

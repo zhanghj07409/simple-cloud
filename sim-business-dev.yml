@@ -48,6 +48,6 @@ mapper:
 ribbon:
   ConnectTimeout: 50000
   ReadTimeout: 180000
-mytransaction:
+distributedtransaction:
   service:
     name: sim-basic 

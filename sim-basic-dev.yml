@@ -42,7 +42,7 @@ mybatis:
   type-aliases-package: com.sim.common.entity #批量增设别名
   config-location: classpath:config/mybatis-config.xml
 mapper:
-  mappers: com.sim.common.util.mybatis.MyMapper
+  mappers: com.sim.common.util.mybatis.SimMapper
   not-empty: false
   identity: MYSQL
 ribbon:

@@ -30,6 +30,15 @@ spring:
     timeout: 36000
     database: 0
     password: '{cipher}AQDPCC373b8MmxgpXbyAH47i2FoGbGd1o6ERpYZVPsl5nplr3vyhHOdkJKD4JzKEmaeNpTyHgETb9JSAYVkYeb9yXU9omhuWGTRjpR1YsH5hoaco7wKCwZdDqoWCF2IobnC+Uid9zTrdjcdpP43JlaVacItx0j37lXqXFjAHyzRs6jX8BYRt11TNieToFRoAmdCH0k2wjm57/weo4yXFkSvEKryMCm2TgsCjlRm6sremG/G1bSIhLsLXV4Bx4Ee+RHQRod+MlbCJmrPCGhUZMJWrijzHToUV/VPIjRGO1vcFqtH3bLqhkO2J9vF2XF8pyNb2t0EkIBjppxRPNgu1J0rgA70mJyVlGHaN8aUUSH6bcW5iEeKRo+MFovYPEL6YdC8='   
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: com.sim.common.serizable.HessianSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: com.sim.common.serizable.HessianDeserializer
+      group-id: ${spring.application.name}
   cloud:
     stream:
       kafka:

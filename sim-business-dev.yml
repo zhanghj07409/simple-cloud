@@ -29,7 +29,7 @@ spring:
     port: 6379
     timeout: 36000
     database: 0
-    password: '{cipher}AQBOoAEywUw7oEmdy2w/9h3OQEo1OzcQ6jWkNuemUYopmyOoMwnhLIaTDuBTbA6nc1yVRQWV597JxtobZk+3B7hRBtpiUKJ/Fgx8QMz38iKIe/wJzhxEfDKwZQ2FQ/L2BJ31L1yp9UnYh2CupEVwhuT+HgDzwZ1CzYrp4G1a3q8WCvkjt18MDJtiYkP1ZagxcD6muTauPVWp9UiaRHAQGKlsuugRpI0WLrLFbV1nym2dmdfQwkfy2+L/hqCBnf8aSiqJNE0EAYAT4LsQOqk8GzmskDJPgBvul4WHIOFRf4wUBj0HEWyXLNby4KzcmNMWUy/CSlDRXejNZpJ9BTIEPnIxYnpmHiBwiXJMHioLFcms40cyJyBg0+A2jSGRXWRUAET+/gR2CJ/n9DGVpoQulWVl'   
+    password: '{cipher}AQDPCC373b8MmxgpXbyAH47i2FoGbGd1o6ERpYZVPsl5nplr3vyhHOdkJKD4JzKEmaeNpTyHgETb9JSAYVkYeb9yXU9omhuWGTRjpR1YsH5hoaco7wKCwZdDqoWCF2IobnC+Uid9zTrdjcdpP43JlaVacItx0j37lXqXFjAHyzRs6jX8BYRt11TNieToFRoAmdCH0k2wjm57/weo4yXFkSvEKryMCm2TgsCjlRm6sremG/G1bSIhLsLXV4Bx4Ee+RHQRod+MlbCJmrPCGhUZMJWrijzHToUV/VPIjRGO1vcFqtH3bLqhkO2J9vF2XF8pyNb2t0EkIBjppxRPNgu1J0rgA70mJyVlGHaN8aUUSH6bcW5iEeKRo+MFovYPEL6YdC8='   
   cloud:
     stream:
       kafka:
